@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos/estilo.css"><!--La etiqueta link permite encontrar el archivo estilo.css-->
+    <script src="https://kit.fontawesome.com/f7b4b788b6.js" crossorigin="anonymous"></script><!--La etiqueta script hace referencia a un script ejecutable dentro del documento-->
+</head>
+<body>
+    <div id="nav_bar">
+        <ul>
+            <li><a href="#">opción1</a></li><!--Permite crear las opciones-->
+            <li><a href="#">opción2</a></li>
+            <li><a href="#">opción3</a></li>
+            <li><a href="#">opción4</a></li>
+            <li><a href="#">opción5</a></li>
+            <li><a href="#">opción6</a></li>
+        </ul>
+    </div>
+    <form id="form-registro" class="formRegistro" action="#" method="get"><!--Da formato para crear un formulario-->
+        <h1>Registro</h1><!--Se añade el titulo del formulario-->
+        <div class="contendor"><!--Esta clase permite que el formulario quede en cuadro-->
+            <label for="nombre"></label><!--Etiqueta que permite descripción corta de la información que se requiere-->
+            <div class="inputWrap">
+                <input class="entrada" type="text" name="nombre" placeholder="Nombre" required><!--Esta etiqueta permite la digitalización de la información-->                  
+            </div> 
+            <label for="apellido"></label>
+            <div class="inputWrap">
+                <input class="entrada" type="text" name="apellido" placeholder="Apellido" required>                    
+            </div> 
+            <label for="telefono"></label>
+            <div class="inputWrap">
+                <input class="entrada" type="tel" name="telefono" placeholder="Teléfono">
+            </div>
+            <label for="mail"></label>
+            <div class="inputWrap">
+                <input type="email" name="mail" placeholder="Correo" required>                    
+            </div> 
+            <div class="inputWrap">
+                <label for="pass"></label>
+                <input class="entrada" type="password" name="pass" placeholder="Contraseña" required>                    
+            </div>
+                <input id="btn-submit-form" type="submit" value="Registrar" class="button"><!--Etiqueta de entrada información por medio tipo boton-->
+        </div>
+        <p>¿Ya estás registrado?<a class="link" href="login.html"> Ingresa</a></p><!--Permite dar información adicional para realizar el ingreso-->
+    </form>
+
+    <br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
