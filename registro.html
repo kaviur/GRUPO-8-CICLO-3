@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,47 +10,59 @@
     <script src="https://kit.fontawesome.com/f7b4b788b6.js" crossorigin="anonymous"></script>
     <!--La etiqueta script hace referencia a un script ejecutable dentro del documento-->
 </head>
-
 <body>
-    <div id="nav_bar">
-        <ul>
-            <li><a href="#">opción1</a></li>
-            <!--Permite crear las opciones-->
-            <li><a href="#">opción2</a></li>
-            <li><a href="#">opción3</a></li>
-            <li><a href="#">opción4</a></li>
-            <li><a href="#">opción5</a></li>
-            <li><a href="#">opción6</a></li>
-        </ul>
-    </div>
-    <form id="form-registro" class="formRegistro" action="#" method="get">
+    <header>
+        <nav id="nav_bar">
+            <ul>
+                <li><a href="#">opción1</a></li>
+                <!--Permite crear las opciones-->
+                <li><a href="#">opción2</a></li>
+                <li><a href="#">opción3</a></li>
+                <li><a href="#">opción4</a></li>
+                <li><a href="#">opción5</a></li>
+                <li><a href="#">opción6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <form id="form-registro" class="formRegistro" action="" method="get">
         <!--Da formato para crear un formulario-->
         <h1>Registro</h1>
         <!--Se añade el titulo del formulario-->
         <div class="contendor">
             <!--Esta clase permite que el formulario quede en cuadro-->
-            <label for="nombre"></label>
+
+            <label class="formulario__label"label for="nombre"></label>
             <!--Etiqueta que permite descripción corta de la información que se requiere-->
-            <div class="inputWrap">
-                <input class="entrada" type="text" name="nombre" placeholder="Nombre" required>
+            <div id="contenedor_nombre" class="inputWrap">
+                <input id="nombre" class="entrada" type="text" name="nombre" onkeyup="checkNombre()" onblur="checkNombre()" placeholder="Nombre" required>                    
                 <!--Esta etiqueta permite la digitalización de la información-->
             </div>
-            <label for="apellido"></label>
-            <div class="inputWrap">
-                <input class="entrada" type="text" name="apellido" placeholder="Apellido" required>
+            <p id="error_nombre" class="input_error"></p>
+            
+            <label class="formulario__label" for="apellido"></label>
+            <div id="contenedor_apellido" class="inputWrap">
+                <input id="apellido" class="entrada" type="text" name="apellido" onkeyup="checkApellido()" onblur="checkApellido()" placeholder="Apellido" required>                    
+            </div> 
+            <p id="error_apellido" class="input_error"></p>
+            
+            <label class="formulario__label" for="telefono"></label>
+            <div id="contenedor_telefono" class="inputWrap">
+                <input id="telefono" class="entrada" type="tel" name="telefono" onkeyup="checkTelefono()" placeholder="Teléfono">
             </div>
-            <label for="telefono"></label>
-            <div class="inputWrap">
-                <input class="entrada" type="tel" name="telefono" placeholder="Teléfono">
+            <p id="error_telefono" class="input_error"></p>
+
+            <label class="formulario__label" for="mail"></label>
+            <div id="contenedor_mail" class="inputWrap">
+                <input id="mail"  type="email" name="mail" placeholder="Correo" required>                    
+            </div> 
+            <p id="error_mail" class="input_error"></p>
+
+            <label class="formulario__label" for="pass"></label>
+            <div id="contenedor_pass" class="inputWrap">
+                <input id="pass" class="entrada" type="password" name="pass" placeholder="Contraseña" required>                    
             </div>
-            <label for="mail"></label>
-            <div class="inputWrap">
-                <input type="email" name="mail" placeholder="Correo" required>
-            </div>
-            <div class="inputWrap">
-                <label for="pass"></label>
-                <input class="entrada" type="password" name="pass" placeholder="Contraseña" required>
-            </div>
+            <p id="error_pass" class="input_error"></p>
+            
             <input id="btn-submit-form" type="submit" value="Registrar" class="button">
             <!--Etiqueta de entrada información por medio tipo boton-->
         </div>
@@ -60,7 +71,6 @@
     </form>
 
     <br><br><br><br><br><br><br><br><br><br>
-    <script type="text/javascript" src="js/app.js"></script>
+    <script src="js/form.js"></script>
 </body>
-
 </html>

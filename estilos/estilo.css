@@ -5,6 +5,13 @@ body{
     background-attachment: fixed;
 }
 
+/* validando el formulario */
+.input_error{
+    color: red;
+    font-size: smaller;
+    text-align: left;
+}
+
 /* index */
 .btn{
     background-color: rgb(236, 164, 96);
