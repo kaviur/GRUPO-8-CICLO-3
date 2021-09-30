@@ -1,8 +1,9 @@
 // Esta función permite validar campos de tipo texto ingresados en un input como el nombre y el apellido 
 // manda un mensaje de error si el usuario ingresa número, caracteres especiales o más de 3 espacios en blanco 
 // Permite ingresar tildes, ñ y ü
-function checkInputTexto(campo) {
+function checkInputTexto(valor,campo) {
     let input = document.getElementById(`${campo}`).value;
+    //let input = valor;
     let exp = /^[a-zA-ZÀ-ÿ\s]{1,40}$/; // Letras y espacios, pueden llevar acentos. Le puse que acepte mínimo 1 máximo 40 porque abajo valido que sea de 4 a 30 caracteres
     let check_input = exp.test(input);
     if(input.trim() == ""){
@@ -45,11 +46,85 @@ function checkInputTexto(campo) {
 }
 
 function checkApellido(valor) {
-    checkInputTexto("apellido");
+    checkInputTexto(valor,"apellido");
 }
 
 function checkNombre(valor) {
-    checkInputTexto("nombre");
+    checkInputTexto(valor,"nombre");
+}
+
+function checkTelefono(valor) {
+    let input = document.getElementById("telefono").value;
+    let exp = /^\d[0-9]{7}$/;
+    let chek_telefono = exp.test(input);
+    if (!chek_telefono) {
+        let msj = "";
+        msjValidacion(true,"telefono",msj); 
+        return true;
+    } else {
+        let msj = "Solo se permiten 7 numeros";
+        msjValidacion(false,"telefono",msj);
+        return false;
+    }
+}
+
+function checkCorreo(valor) {
+    let input = document.getElementById("mail").value;
+    let expresion = /^[a-zA-Z0-9._-]+@+[a-zA-Z]+\.[a-zA-Z]{2,3,4}+$/; // Usuario con letras, números, punto, guión bajo, guión medio antes de la arroba, servidor con letras, despues del punto el dominio con letras de minimo 2 y máximo 4
+    if (!input === "") { //  Valida si el campo esta vacio.
+        let msj = "Campo obligatorio";
+        msjValidacion(false,"mail",msj);
+        return false;
+    }
+    if (!expresion.test(input)) { // Valida si el correo coincide con la expresion para registrar
+        let msj = "";
+        msjValidacion(true,"mail",msj);
+        return true;
+    } else {
+        let msj = "El correo no es valido";
+        msjValidacion(false,"mail",msj);
+        return false;
+    }
+}
+
+function checkContrasena(valor) {
+    let input = document.getElementById("pass").value;
+    //let exp = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    let min = /[a-z]+/;
+    let mayu = /[A-Z]+/;
+    let num = /[0-9]+/;
+    let long = /[0-9a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ\s\'\:\.\,\;-]{8,}/;
+    //let check_correo = exp.test(input);
+    let contieneMinusculas = min.test(input);
+    let contieneMayusculas = mayu.test(input);
+    let contieneNumeros = num.test(input);
+    let tienelalongitud = long.test(input);
+
+    if (input.length == 0) {
+        let msj = "Escribe algo en la contraseña";
+        msjValidacion(false,"pass",msj);
+        return false;
+    } else if (contieneMayusculas == false) {
+        let msj = "Escribe al menos una letra mayúscula";
+        msjValidacion(false,"pass",msj);
+        return false;
+    } else if (contieneMinusculas == false) {
+        let msj = "Escribe al menos una letra minúscula";
+        msjValidacion(false,"pass",msj);
+        return false;
+    } else if (contieneNumeros == false) {
+        let msj = "Escribe al menos un número";
+        msjValidacion(false,"pass",msj);
+        return false;
+    } else if (tienelalongitud == false) {
+        let msj = "La contraseña debe tener al menos 8 caracteres";
+        msjValidacion(false,"pass",msj);
+        return false;
+    } else {
+        let msj = "";
+        msjValidacion(true,"pass",msj);
+        return true;
+    }
 }
 
 // muestra mensaje de error si lo ingresado por el usuario no es válido o nada si es válido
@@ -64,10 +139,10 @@ function msjValidacion(esvalido,campo, msj){
     document.getElementById(`error_${campo}`).innerHTML = msj;
 }
 
-module.export = {
+module.exports = {
     checkNombre,
     checkApellido,
     checkTelefono,
     checkCorreo,
-    checkContraseña
-};
+    checkContrasena
+}
