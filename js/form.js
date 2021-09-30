@@ -69,26 +69,26 @@ function checkTelefono(valor) {
 }
 
 function checkCorreo(valor) {
-    let input = document.getElementById("mail").value;
+    let input = document.getElementById("correo").value;
     let expresion = /^[a-zA-Z0-9._-]+@+[a-zA-Z]+\.[a-zA-Z]{2,3,4}+$/; // Usuario con letras, números, punto, guión bajo, guión medio antes de la arroba, servidor con letras, despues del punto el dominio con letras de minimo 2 y máximo 4
     if (!input === "") { //  Valida si el campo esta vacio.
         let msj = "Campo obligatorio";
-        msjValidacion(false,"mail",msj);
+        msjValidacion(false,"correo",msj);
         return false;
     }
     if (!expresion.test(input)) { // Valida si el correo coincide con la expresion para registrar
         let msj = "";
-        msjValidacion(true,"mail",msj);
+        msjValidacion(true,"correo",msj);
         return true;
     } else {
         let msj = "El correo no es valido";
-        msjValidacion(false,"mail",msj);
+        msjValidacion(false,"correo",msj);
         return false;
     }
 }
 
 function checkContrasena(valor) {
-    let input = document.getElementById("pass").value;
+    let input = document.getElementById("contrasena").value;
     //let exp = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     let min = /[a-z]+/;
     let mayu = /[A-Z]+/;
@@ -102,27 +102,27 @@ function checkContrasena(valor) {
 
     if (input.length == 0) {
         let msj = "Escribe algo en la contraseña";
-        msjValidacion(false,"pass",msj);
+        msjValidacion(false,"contrasena",msj);
         return false;
     } else if (contieneMayusculas == false) {
         let msj = "Escribe al menos una letra mayúscula";
-        msjValidacion(false,"pass",msj);
+        msjValidacion(false,"contrasena",msj);
         return false;
     } else if (contieneMinusculas == false) {
         let msj = "Escribe al menos una letra minúscula";
-        msjValidacion(false,"pass",msj);
+        msjValidacion(false,"contrasena",msj);
         return false;
     } else if (contieneNumeros == false) {
         let msj = "Escribe al menos un número";
-        msjValidacion(false,"pass",msj);
+        msjValidacion(false,"contrasena",msj);
         return false;
     } else if (tienelalongitud == false) {
         let msj = "La contraseña debe tener al menos 8 caracteres";
-        msjValidacion(false,"pass",msj);
+        msjValidacion(false,"contrasena",msj);
         return false;
     } else {
         let msj = "";
-        msjValidacion(true,"pass",msj);
+        msjValidacion(true,"contrasena",msj);
         return true;
     }
 }
