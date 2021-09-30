@@ -2,7 +2,7 @@
 // otra forma de declarar una variable global es window.totalUsuarios globalThis.totalUsuarios = [];
 totalUsuarios = [];
 
-function agregarRegistro(){
+function agregarRegistro() {
     /*
     //const inputs = document.querySelectorAll('#form-registro input');
     let elements = document.getElementById("form-registro").elements;
@@ -17,8 +17,8 @@ function agregarRegistro(){
     }*/
 
     //Antes de agregar un registro se debe hacer la validación de los campos
-    //FALTA ------------
-    function Usuario(nombre,apellido,telefono,mail,pass){
+    //FALTA ------------------------------------------------------------------------------------------------
+    function Usuario(nombre, apellido, telefono, mail, pass) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -32,7 +32,7 @@ function agregarRegistro(){
     mailIngresado = document.getElementById("mail").value;
     passIngresado = document.getElementById("pass").value;
 
-    var usuarioNuevo = new Usuario(nombreIngresado,apellidoIngresado,telefonoIngresado,mailIngresado,passIngresado);
+    var usuarioNuevo = new Usuario(nombreIngresado, apellidoIngresado, telefonoIngresado, mailIngresado, passIngresado);
 
     //Agregar elementos a un array
     totalUsuarios.push(usuarioNuevo);
