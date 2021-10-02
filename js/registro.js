@@ -42,5 +42,25 @@ class Usuario {
     }
 }
 
+/*
+Función para filtrar correos de gmail de los usuarios registrados que se encuentran en un 
+arreglo llamado registros
+*/
+function filtrarCorreo(arreglo) {
+    let expresionReg = /[a-zA-Z0-9_.+-]+@gmail.com/; 
+    let listaCorreos = [];
+    for (let i = 0; i < arreglo.length; i++){
+        let correo = arreglo[i].mail;
+        let datos = arreglo[i];
+        let validarCorreo = expresionReg.test(correo);
+        if (validarCorreo === true) {
+            listaCorreos.push(datos);
+        }
+    }
+    console.log(listaCorreos);
+    return listaCorreos;
+}
+
 module.exports.agregarRegistro = agregarRegistro;
 module.exports.registros = registros;
+module.exports.filtrarCorreo = filtrarCorreo;
