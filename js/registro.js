@@ -39,5 +39,26 @@ function agregarRegistro() {
     console.log(totalUsuarios);
 }
 
+/*
+Función para ordenar usuarios  por apellido que se encuentran en un 
+arreglo llamado registros
+*/
+
+function ordenarArreglo(arreglo) {
+    arreglo.sort((a, b) => {
+        let lastNameA = a.apellido.toLowerCase();
+        let lastNameB = b.apellido.toLowerCase();
+        if (lastNameA < lastNameB) {
+            return -1;
+        }
+        if (lastNameA > lastNameB) {
+            return 1;
+        }
+        return 0;
+    });
+    console.log(arreglo);
+    return arreglo;
+}
+
 
 module.exports = agregarRegistro;
